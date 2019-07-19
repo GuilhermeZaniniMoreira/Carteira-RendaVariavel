@@ -18,4 +18,4 @@ app.use(bodyParser.json());
 // Inicia as rotas da API
 app.use("/api", require("./controllers/userController"));
 
-app.listen(3000);
+app.listen(3333);
