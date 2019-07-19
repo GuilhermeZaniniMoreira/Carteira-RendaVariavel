@@ -1,7 +1,7 @@
 const app = require("express")();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-
+const cors = require("cors")
 mongoose.set('useCreateIndex', true);
 
 // Conecta no MongoDB
@@ -13,6 +13,7 @@ mongoose.connect(
 // Carrega o model de Usuário
 require("./models/user");
 
+app.use(cors())
 app.use(bodyParser.json());
 
 // Inicia as rotas da API
