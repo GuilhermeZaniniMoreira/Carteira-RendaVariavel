@@ -17,6 +17,11 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
     width: 100%;
   }
+
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
 `;
 
 export default GlobalStyle;
