@@ -3,11 +3,12 @@ import {RemoveScroll} from 'react-remove-scroll';
 
 import NavbarComponent from '../../components/Navbar'
 import Chart from '../../components/Chart'
+import News from '../../components/news/News'
 
 class Dashboard extends Component {
     render() {
         return (
-            <RemoveScroll>
+        
                 <div>
                     <div>
                         <NavbarComponent/>
@@ -15,8 +16,10 @@ class Dashboard extends Component {
                     <div className="chart">
                         <Chart/>
                     </div>
-                </div>
-            </RemoveScroll>
+                    <div>
+                        <News/>
+                    </div>
+                </div>   
         )
     }
 }
