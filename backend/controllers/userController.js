@@ -5,6 +5,7 @@ const authMiddleware = require("../middlewares/auth");
 const User = mongoose.model("User");
 
 router.post("/register", async (req, res) => {
+  console.log(req.body)
   const { email, username } = req.body;
 
   try {

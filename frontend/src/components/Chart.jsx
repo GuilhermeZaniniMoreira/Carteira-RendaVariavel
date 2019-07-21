@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import classNames from "classnames";
+// eslint-disable-next-line
 import { Line, Bar } from "react-chartjs-2";
 
 // reactstrap components
@@ -23,7 +24,8 @@ class Chart extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          bigChartData: "data1"
+          bigChartData: "data1",
+          name: ""
         };
       }
       setBgChartData = name => {
@@ -33,9 +35,8 @@ class Chart extends Component {
       };
 
     render() {
-        return(
-            <Row>
-            <Col xs="12">
+        return (
+            <Col>
               <Card className="card-chart">
                 <CardHeader>
                   <Row>
@@ -129,7 +130,6 @@ class Chart extends Component {
                 </CardBody>
               </Card>
             </Col>
-          </Row>
         )
     }
 }

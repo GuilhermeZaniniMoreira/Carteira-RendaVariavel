@@ -16,12 +16,14 @@ const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased !important;
     height: 100%;
     width: 100%;
+    width: 100vw;
   }
 
   html, body {
     max-width: 100%;
     overflow-x: hidden;
   }
+  
 `;
 
 export default GlobalStyle;
