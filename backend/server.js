@@ -21,5 +21,6 @@ app.use(bodyParser.json());
 // Inicia as rotas da API
 app.use("/api", require("./controllers/userController"));
 app.use("/api/stock", require("./controllers/stockController"));
+app.use("/api/yahoo", require("./controllers/yahooController"));
 
 app.listen(3333);

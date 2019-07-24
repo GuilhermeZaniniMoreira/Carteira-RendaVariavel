@@ -16,8 +16,6 @@ class AutoComplete extends Component {
         };
     }
 
-    
-
     render() {
         return (
             <Typeahead
