@@ -12,11 +12,14 @@ mongoose.connect(
 
 // Carrega o model de Usuário
 require("./models/user");
+// Carrega o model de Stock
+require("./models/stock");
 
 app.use(cors())
 app.use(bodyParser.json());
 
 // Inicia as rotas da API
 app.use("/api", require("./controllers/userController"));
+app.use("/api/stock", require("./controllers/stockController"));
 
 app.listen(3333);

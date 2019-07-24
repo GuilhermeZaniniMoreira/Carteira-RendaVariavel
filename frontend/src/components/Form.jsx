@@ -11,9 +11,11 @@ class FormAtivos extends Component {
                 <Col sm>
                 <Form>
                     <AutoComplete />
-                    <Form.Group controlId="formBasicPassword">
+                    <Form.Group controlId="formBasic">
                         <Form.Label>Quantiade</Form.Label>
                         <Form.Control type="quatity" placeholder="Quantidade" />
+                        <Form.Label>Tipo</Form.Label>
+                        <Form.Control type="type" placeholder="fiis..." />
                     </Form.Group>
                     <Button variant="primary" type="submit">
                         Adicionar
