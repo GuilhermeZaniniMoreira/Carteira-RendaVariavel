@@ -1,6 +1,16 @@
 const router = require("express").Router();
 const axios = require("axios")
-const mongoose = require("mongoose");
+
+router.get('/last', (req, res) => {
+  const ticker = req.query.ticker
+  axios.get(`https://query1.finance.yahoo.com/v7/finance/chart/${ticker}.SA?range=5y&interval=1d&indicators=quote&includeTimestamps=true`)
+  .then(resp => {
+    const length = resp.data.chart.result[0].indicators.adjclose[0].adjclose.length
+    const lastClose = resp.data.chart.result[0].indicators.adjclose[0].adjclose[length - 2]
+    const todayLast = resp.data.chart.result[0].indicators.adjclose[0].adjclose[length - 1]
+    res.send({ lastClose })
+  })
+})
 
 router.get('/price', (req, res) => {
     const ticker = req.query.ticker
@@ -13,7 +23,6 @@ router.get('/price', (req, res) => {
 
 router.get('/check', (req, res) => {
     const ticker = req.query.ticker
-
     axios.get(`https://query1.finance.yahoo.com/v10/finance/quoteSummary/${ticker}.SA?&modules=summaryProfile,financialData`)
     .then(resp => {
 
