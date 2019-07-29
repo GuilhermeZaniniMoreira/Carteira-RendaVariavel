@@ -78,7 +78,7 @@ class Add extends Component {
                                     <Form.Label>Ticker</Form.Label>
                                     <Form.Control type="ticker"
                                     placeholder="Ticker"
-                                    onChange={e => this.setState({ ticker: e.target.value })} />
+                                    onChange={e => this.setState({ ticker: e.target.value.toUpperCase() })} />
 
                                     <Form.Group controlId="formGridState">
                                         <Form.Label>Ativo</Form.Label>

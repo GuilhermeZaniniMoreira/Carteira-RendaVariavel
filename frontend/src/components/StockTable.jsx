@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React from 'react'
-import { Table, Col, Row } from 'react-bootstrap';
+import { Table, Col, Row, Button, TableHeaderColumn } from 'react-bootstrap';
 import MaterialIcon, {colorPalette} from 'material-icons-react';
 
 export default props => {    
@@ -10,14 +10,6 @@ export default props => {
       currency: 'BRL',
       minimumFractionDigits: 2
     });
-
-    const onHover = () => {
-      console.log('onHover')
-    }
-
-    const handleClick = () => {
-      console.log('handleClick')
-    }
 
     const renderRows = () => {
       const list = props.list
@@ -31,7 +23,6 @@ export default props => {
         acao.last = parseFloat((lastPrices[i].lastClose).toFixed(2))
 
         var difference = (acao.price - acao.last)
-        console.log(difference)
         var percentage = ((difference / acao.last) * 100).toFixed(2)
         
         if (difference <= 0) {
@@ -50,16 +41,14 @@ export default props => {
             <td>{formatter.format(acao.price)}</td>
             <td style={{'backgroundColor': acao.percentage > 0 ? 'green' : 'red'}}>{acao.percentage + "%"}</td>
             <td>{formatter.format((acao.quantity * acao.price).toFixed(2))}</td>
-            <td>
-              <div className="font-icon-wrapper" onClick={handleClick} onMouseOver={onHover}>
-                <MaterialIcon icon="border_color" color={colorPalette.blue._100} />
-              </div>
-              <div className="font-icon-wrapper" onClick={handleClick}>
-                <MaterialIcon icon="delete" color={colorPalette.indigo._300} />
-              </div>
-              <div className="font-icon-wrapper" onClick={handleClick}>
-                <MaterialIcon icon="open_in_new" color={colorPalette.cyan._200} />
-              </div>
+            <td onClick={() => props.handleEdit(acao)}>
+              <Button className="button" variant="success"><MaterialIcon icon="border_color" color={colorPalette.blue._50} /></Button>
+            </td>
+            <td onClick={() => props.handleDelete(acao)}>
+              <Button className="button" variant="danger"><MaterialIcon icon="delete" color={colorPalette.indigo._50} /></Button>    
+            </td>
+            <td onClick={() => props.handleView(acao)}>
+              <Button className="button" variant="primary"><MaterialIcon icon="open_in_new" color={colorPalette.cyan._50} /></Button>
             </td>
         </tr>
       ))
@@ -76,7 +65,9 @@ export default props => {
                 <th>R$</th>
                 <th>%</th>
                 <th>Total</th>
-                <th>Ações</th>
+                <th>Editar</th>
+                <th>Excluir</th>
+                <th>Visuzalizar</th>
               </tr>
             </thead>
             <tbody>

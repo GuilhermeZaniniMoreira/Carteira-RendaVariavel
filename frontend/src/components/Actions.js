@@ -7,3 +7,10 @@ export const TableData = styled.td`
     text-align: center;
     vertical-align: middle;
 `;
+
+export const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+`;

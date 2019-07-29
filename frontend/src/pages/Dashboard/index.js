@@ -4,11 +4,9 @@ import NavbarComponent from '../../components/Navbar'
 import Chart from '../../components/Chart'
 //import ReactList from 'react-list'
 import StockTable from '../../components/StockTable'
-import PerfectScrollbar from 'react-perfect-scrollbar'
 
 import api from "../../services/api";
 import axios from 'axios'
-import ScrollBar from 'react-perfect-scrollbar';
 
 class Dashboard extends Component {
     constructor(props) {
@@ -19,6 +17,18 @@ class Dashboard extends Component {
           prices: [],
           lastPrices: []
         };
+    }
+
+    handleEdit(stock) {
+        window.open(`/edit/${stock.ticker}`)
+    }
+
+    handleDelete(stock) {
+        window.open(`/edit/${stock.ticker}`)
+    }
+
+    handleView(stock) {
+        window.open(`/edit/${stock.ticker}`)
     }
 
     componentDidMount = async e => {
@@ -68,7 +78,6 @@ class Dashboard extends Component {
 
     render() {
         return (
-            <PerfectScrollbar>
             <div>
                 <div>
                     <div>
@@ -81,12 +90,14 @@ class Dashboard extends Component {
                     <StockTable
                         list={this.state.list}
                         prices={this.state.prices}
-                        last={this.state.lastPrices} />
+                        last={this.state.lastPrices}
+                        handleEdit={this.handleEdit}
+                        handleDelete={this.handleDelete}
+                        handleView={this.handleView} />
 
                     </div>
                 </div>
             </div>
-            </PerfectScrollbar>
         )
     }
 }

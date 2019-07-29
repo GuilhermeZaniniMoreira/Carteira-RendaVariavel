@@ -7,9 +7,8 @@ class FormAtivos extends Component {
         return (
             <Container>
             <Row>
-                <Col sm></Col>
                 <Col sm>
-                <Form>
+                   <Form>
                     <AutoComplete />
                     <Form.Group controlId="formBasic">
                         <Form.Label>Quantiade</Form.Label>
@@ -22,7 +21,6 @@ class FormAtivos extends Component {
                     </Button>
                     </Form>
                 </Col>
-                <Col sm></Col>
             </Row>
           </Container>
         )
