@@ -22,8 +22,16 @@ router.get("/list", async (req, res) => {
   })
 });
 
+router.get("/singleStock", async (req, res) => {
+  const data = req.query
+  const ticker = data.ticker
+  const user_id = { user_id: req.userId };
+
+  Stock.find({ user_id, ticker : ticker }, function(err, stock) {
+    return res.json({ stock });
+  })
 
 
-
+})
 
 module.exports = router;
